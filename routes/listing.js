@@ -21,7 +21,6 @@ router.get("/", wrapAsync(async (req, res) => {
     res.render("listings/index.ejs", { allListings });
 }))
 
-
 /* New Route*/
 router.get("/new", (req, res) => {
     res.render("listings/new.ejs");
@@ -34,7 +33,6 @@ router.get("/:id", wrapAsync(async (req, res) => {
     res.render("listings/show.ejs", { listing });
 }))
 
-
 /* Create Route*/
 router.post("/", validateListing, wrapAsync(async (req, res) => {
 
@@ -44,7 +42,6 @@ router.post("/", validateListing, wrapAsync(async (req, res) => {
 
 })
 );
-
 
 /*Edit Route*/
 router.get("/:id/edit", wrapAsync(async (req, res) => {
@@ -64,6 +61,7 @@ router.put("/:id", validateListing, wrapAsync(async (req, res) => {
 
 })
 )
+
 /*Delete Route */
 router.delete("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
