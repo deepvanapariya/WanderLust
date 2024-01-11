@@ -70,6 +70,14 @@ app.use((req, res, next) => {
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 
+app.get("/demouser", async (req, res) => {
+    let fackUser = new User({
+        email: "me@gmail.com",
+        username: "coder"
+    });
+    let registeredUser = await User.register(fackUser, "helloworld");
+    res.send(registeredUser);
+})
 
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
