@@ -13,21 +13,12 @@ const listingSchema = new Schema({
     },
 
     image: {
-        type: String,
-        default: "https://media-cdn.tripadvisor.com/media/photo-s/29/f0/19/20/caption.jpg",
-        set: (v) => v === ""
-            ? "https://media-cdn.tripadvisor.com/media/photo-s/29/f0/19/20/caption.jpg" : v,
+        url: String,
+        filename: String,
     },
-    price: {
-        type: Number,
-    },
-    location: {
-        type: String,
-    },
-    country: {
-
-        type: String,
-    },
+    price: Number,
+    location: String,
+    country: String,
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review",
